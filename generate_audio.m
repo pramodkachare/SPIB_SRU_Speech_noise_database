@@ -27,7 +27,8 @@ for i = 1:length(files)
     x = x/max(abs(x))*0.75;        % Fix amplitude range to avoid clipping
     
     % Write audio data with respective sampling frequency and format
-    audiowrite(fullfile(OUT_DIR, [name, EXT]), x, fs)
+    mkdir(fullfile(OUT_DIR, name))
+    audiowrite(fullfile(OUT_DIR, name, [name, EXT]), x, fs)
     fprintf('Generated %s noise signal.\n', name);
 end
 
